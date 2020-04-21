@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Title } from './styles';
 
 export default class Main extends Component {
   render() {
-    return <h1> Main</h1>;
+    return <Title> Main</Title>;
   }
 }
