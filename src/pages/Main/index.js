@@ -9,7 +9,7 @@ export default class Main extends Component {
   state = {
     newRepo: '',
     repositories: [],
-    loading: true,
+    loading: false,
   };
 
   handleInputChange = (e) => {
