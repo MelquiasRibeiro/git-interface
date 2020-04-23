@@ -14,7 +14,7 @@ Nesta aplicação o usurio pode buscar e salvar repositórios do _gitHub_ e cons
 + Roteamento com [React Router Dom](https://reacttraining.com/react-router/web/guides/quick-start);
 + [Styled Components](https://styled-components.com/);
 + Requisiçoes a API com o [Axios](https://www.npmjs.com/package/axios);
-+ Gardando dados no LocalStorage;
++ Armazenamento de dados no LocalStorage;
 + Renderização Condicional;
 
 
