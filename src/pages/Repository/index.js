@@ -5,8 +5,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
-import { Loading, Owner, ListIssues, PageActions } from './styles';
+
 import Container from '../../components/container/index';
+import { Loading, Owner, ListIssues, IssueFilter, PageActions } from './styles';
 
 export default class Repository extends Component {
   static propTypes = {
@@ -83,7 +84,14 @@ export default class Repository extends Component {
   };
 
   render() {
-    const { repository, issues, loading, page } = this.state;
+    const {
+      repository,
+      issues,
+      loading,
+      page,
+      filters,
+      filterIndex,
+    } = this.state;
 
     if (loading) {
       return <Loading>Carregando...</Loading>;
@@ -98,6 +106,17 @@ export default class Repository extends Component {
           <p>{repository.description}</p>
         </Owner>
         <ListIssues>
+          <IssueFilter active={filterIndex}>
+            {filters.map((filter, index) => (
+              <button
+                type="button"
+                key={filter.label}
+                onClick={() => this.handleFilterClick(index)}
+              >
+                {filter.label}
+              </button>
+            ))}
+          </IssueFilter>
           {issues.map((issue) => (
             <li key={String(issue.id)}>
               <img src={issue.user.avatar_url} alt={issue.user.login} />
